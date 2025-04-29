@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الموقع الشخصي | أروى القدرة</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #5D1049;
+            --secondary: #4E0D3A;
+            --accent: #E30425;
+            --light: #F8F1FF;
+            --dark: #2A0A1E;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: var(--dark);
+            line-height: 1.8;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 40px 0 0;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            border-radius: 0 0 30px 30px;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/arabesque.png');
+            opacity: 0.1;
+            pointer-events: none;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        h1::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            right: 0;
+            width: 50%;
+            height: 3px;
+            background: var(--accent);
+            border-radius: 3px;
+        }
+        
+        nav {
+            margin-top: 30px;
+            background: rgba(0, 0, 0, 0.15);
+            padding: 15px 0;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 8px 15px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        nav a.active {
+            background: var(--accent);
+            font-weight: bold;
+        }
+        
+        .profile-card {
+            display: flex;
+            background: white;
+            margin: 50px 0;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+        
+        .profile-img-container {
+            width: 300px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+        }
+        
+        .profile-img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.5s ease;
+        }
+        
+        .profile-img:hover {
+            transform: scale(1.03) rotate(1deg);
+        }
+        
+        .profile-info {
+            flex: 1;
+            padding: 40px;
+        }
+        
+        h2 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            right: 0;
+            width: 100px;
+            height: 3px;
+            background: var(--accent);
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 10px 0;
+        }
+        
+        .info-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.1rem;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .social-link {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--light);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .social-link:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-5px);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: var(--dark);
+            color: white;
+            margin-top: 70px;
+            border-radius: 30px 30px 0 0;
+        }
+        
+        footer p {
+            margin-bottom: 10px;
+        }
+        
+        .heart {
+            color: var(--accent);
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+            100% { transform: scale(1); }
+        }
+        
+        @media (max-width: 992px) {
+            .profile-card {
+                flex-direction: column;
+            }
+            
+            .profile-img-container {
+                width: 100%;
+                padding: 30px 0;
+            }
+            
+            .profile-img {
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>مرحباً بكم في موقعي</h1>
+            <p style="opacity: 0.9; font-size: 1.1rem;">تصميم إبداعي | وسائط متعددة | جرافيك</p>
+            
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active"><i class="fas fa-home"></i> الرئيسية</a></li>
+                    <li><a href="university.html"><i class="fas fa-university"></i> الجامعة</a></li>
+                    <li><a href="form.html"><i class="fas fa-file-alt"></i> النموذج</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="container">
+        <div class="profile-card">
+            <div class="profile-img-container">
+                <img src="myphoto.jpg" alt="صورة أروى القدرة" class="profile-img">
+            </div>
+            
+            <div class="profile-info">
+                <h2>معلوماتي الشخصية</h2>
+                
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <h3>الاسم</h3>
+                            <p>أروى محمود القدرة</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-birthday-cake"></i>
+                        </div>
+                        <div>
+                            <h3>تاريخ الميلاد</h3>
+                            <p>17 فبراير 2006</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3>الدولة</h3>
+                            <p>فلسطين</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div>
+                            <h3>الجامعة</h3>
+                            <p>القدس المفتوحة</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div>
+                            <h3>التخصص</h3>
+                            <p>الوسائط المتعددة والتصميم الجرافيكي</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3>البريد الإلكتروني</h3>
+                            <p>arwa.mah2006@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h3>رقم الهاتف</h3>
+                            <p>01557545458</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="social-links">
+                    <a href="mailto:arwa.mah2006@gmail.com" class="social-link">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="tel:01557545458" class="social-link">
+                        <i class="fas fa-phone"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-behance"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-dribbble"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>تصميم وتطوير <span class="heart">❤</span> أروى القدرة</p>
+            <p>جميع الحقوق محفوظة &copy; 2025</p>
+        </div>
+    </footer>
+</body>
+</html>
